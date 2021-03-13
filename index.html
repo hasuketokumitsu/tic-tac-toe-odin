@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Title -->
+    <title>CSS - Tic Tac Toe Board Game</title>
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <!-- Body -->
+  <body>
+    <div class="container" id="board">
+      <!-- Heading -->
+      <div class="row" id="row1">
+        <h1>Tic Tac Toe</h1>
+      </div>
+      <!-- Top Row -->
+      <div class="row" id="row2">
+        <div class="top left square" id="000"></div>
+        <div class="top middle square" id="001"></div>
+        <div class="top right square" id="002"></div>
+      </div>
+      <!-- Middle Row -->
+      <div class="row" id="row3">
+        <div class="middle left square" id="003"></div>
+        <div class="middle center square" id="004"></div>
+        <div class="middle right square" id="005"></div>
+      </div>
+      <!-- Bottom Row -->
+      <div class="row" id="row4">
+        <div class="bottom left square" id="006"></div>
+        <div class="bottom middle square" id="007"></div>
+        <div class="bottom right square" id="008"></div>
+      </div>
+      <!-- Result Announcement Row -->
+      <div class="row clear" id="row5">
+        <h1 id="result"></h1>
+      </div>
+    </div>
+    <!-- Script -->
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "tic-tac-toe-odin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "prettier": "2.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasuketokumitsu/tic-tac-toe-odin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hasuketokumitsu/tic-tac-toe-odin/issues"
+  },
+  "homepage": "https://github.com/hasuketokumitsu/tic-tac-toe-odin#readme"
+}

@@ -1,0 +1,75 @@
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.125rem;
+}
+
+#board {
+  padding: 1rem;
+  margin: 0.5rem;
+  text-align: center;
+}
+
+.square {
+  float: left;
+  clear: right;
+  width: 100px;
+  height: 100px;
+  line-height: 85px;
+  background-color: #f8f9fa;
+  font-size: 400%;
+}
+
+.square:hover {
+  cursor: pointer;
+}
+
+.row {
+  margin: 0 auto;
+  width: 302px;
+  border-style: solid;
+  border-color: white;
+}
+
+.clear {
+  clear: both;
+}
+
+.top {
+  border-bottom-color: rgba(52, 58, 64, 0.5);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+.bottom {
+  border-top-color: rgba(52, 58, 64, 0.5);
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+
+.left {
+  border-right-color: rgba(52, 58, 64, 0.5);
+  border-right-style: solid;
+  border-right-width: 1px;
+}
+
+.right {
+  border-left-color: rgba(52, 58, 64, 0.5);
+  border-left-style: solid;
+  border-left-width: 1px;
+}
+
+#square2 {
+  border-top-right-radius: 0.25rem;
+}
+
+#square8 {
+  border-bottom-right-radius: 0.25rem;
+}
+
+#square6 {
+  border-bottom-left-radius: 0.25rem;
+}
+
+#square0 {
+  border-top-left-radius: 0.25rem;
+}
