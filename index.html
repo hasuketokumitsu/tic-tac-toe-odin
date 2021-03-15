@@ -13,7 +13,23 @@
 
   <!-- Body -->
   <body>
-    <div class="container" id="board">
+    <!-- Players put in names -->
+    <div class="container" id="players-sign-up-names" style="display: block">
+      <!-- Heading -->
+      <div class="row" id="row1">
+        <h1>Tic Tac Toe</h1>
+      </div>
+      <form id="players-sign-up">
+        <label for="player1-name">Player 1 name: </label>
+        <input type="text" id="player1-name" /><br /><br /><br />
+        <label for="player2-name">Player 2 name: </label>
+        <input type="text" id="player2-name" /><br /><br /><br />
+        <input type="submit" id="start-button" value="Start" />
+      </form>
+    </div>
+
+    <!-- Game -->
+    <div class="container" id="board" style="display: none">
       <!-- Heading -->
       <div class="row" id="row1">
         <h1>Tic Tac Toe</h1>
@@ -38,6 +54,7 @@
       </div>
       <!-- Result Announcement Row -->
       <div class="row clear" id="row5">
+        <h1 id="player-turn" style="display: block"></h1>
         <h1 id="result"></h1>
       </div>
     </div>

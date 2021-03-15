@@ -1,13 +1,35 @@
 const game = (() => {
   let gameBoard = ["", "", "", "", "", "", "", "", ""];
-  let player1 = false;
-  let turn = 0;
+  let player1Turn = true;
+  let whichTurn = 0;
   let winner = false;
-  const resultToDOM = document.getElementById("result"); // will be used to update the game result to DOM
+  const resultToDOM = document.getElementById("result"); // will be used to update the game result to DOM]
+  let player1Name = "Player 1";
+  let player2Name = "Player 2";
+  let mark = "o"; // corresponds to player 1's mark
 
-  const clickEvent = (() => {
+  const startButtonClickEvent = (() => {
+    const signUpForm = document.getElementById("players-sign-up");
+    signUpForm.addEventListener("submit", (eve) => {
+      eve.preventDefault();
+
+      // set players' input names to player1Name and player2Name const
+      player1Name = document.getElementById("player1-name").value;
+      player2Name = document.getElementById("player2-name").value;
+
+      // Update playerTurn to show players' names in the game board
+      playerTurnUpdate();
+
+      // close the sign-up page and load the game board
+      document.getElementById("players-sign-up-names").style.display = "none";
+      document.getElementById("board").style.display = "block";
+    });
+  })();
+
+  const gameBoardSquareClickEvent = (() => {
     // Target all squares and add click eventlistener
     const allSquares = document.querySelectorAll(".square");
+
     allSquares.forEach((square) => {
       square.addEventListener("click", () => {
         // Check if the game is already over
@@ -18,6 +40,13 @@ const game = (() => {
           // Check same spot
           // Change gameBoard spot to "x" or "o"
           placeMarker(whichSpot);
+          // Update the board
+          gameBoardToDOM();
+          whichTurn++;
+          if (whichTurn >= 5) checkWinner();
+          // After everything is done, toggle the player turn
+          player1Turn = !player1Turn;
+          playerTurnUpdate();
         }
       });
     });
@@ -26,18 +55,21 @@ const game = (() => {
   const placeMarker = (spot) => {
     // Only place marker if the spot is not already taken.
     if (gameBoard[spot] === "") {
-      // Change the gameBoard arr to "x" or "o"
-      gameBoard[spot] = playerToggler();
-      // Update the board
-      gameBoardToDOM();
-      turn++;
-      if (turn >= 5) checkWinner();
+      // Place mark to gameBoard
+      gameBoard[spot] = mark;
     } else alert("Spot already taken.");
   };
 
-  const playerToggler = () => {
-    player1 = !player1;
-    return player1 ? "o" : "x";
+  const playerTurnUpdate = () => {
+    // toggle mark + toggle player-turn on html
+    const playerTurnDOM = document.getElementById("player-turn");
+    if (player1Turn === true) {
+      mark = "o";
+      playerTurnDOM.textContent = `${player1Name}'s turn`;
+    } else {
+      mark = "x";
+      playerTurnDOM.textContent = `${player2Name}'s turn`;
+    }
   };
 
   const gameBoardToDOM = () => {
@@ -48,21 +80,26 @@ const game = (() => {
   };
 
   const checkWinner = () => {
-    if (turn % 2 === 1) {
+    // hide the player-turn part in html when the winner is announced???
+    let playerTurnHTML = document.getElementById("player-turn");
+    if (player1Turn === true) {
       winner = player1WinCheck();
       if (winner === true) {
-        resultToDOM.textContent = "Player 1 wins.";
+        resultToDOM.textContent = `${player1Name} wins.`;
+        playerTurnHTML.style.display = "none";
         return;
       }
     } else {
       winner = player2WinCheck();
       if (winner === true) {
-        resultToDOM.textContent = "Player 2 wins.";
+        resultToDOM.textContent = `${player2Name} wins.`;
+        playerTurnHTML.style.display = "none";
         return;
       }
     }
-    if (turn === 9) {
+    if (whichTurn === 9) {
       resultToDOM.textContent = "Ties.";
+      playerTurnHTML.style.display = "none";
       winner = true;
     }
   };
